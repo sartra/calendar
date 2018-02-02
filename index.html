@@ -1,0 +1,51 @@
+<head>
+  <meta charset="UTF-8">
+  <title>Calendar</title>
+  <script src="lib/jquery/dist/jquery.js"></script>
+  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src='test/schedule.js'></script>
+  <style>
+    #calendar {
+      width: 100%;
+      border: 1px solid black;
+    }
+    th, td, tr{
+      height: 100px;
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+
+</body>
+<script src="./lib/expect/index.js"></script>
+<script src="./lib/mocha/mocha.js"></script>
+<script src="./test/polyfill.js"></script>
+<script src='client/main.js'></script>
+<script>
+  if (window.mochaPhantomJS) {
+    mocha.setup('bdd');
+    addScript("./test/calendar-test.js");
+  }
+
+  function addScript(path) {
+    var js = document.createElement('script');
+    js.type = 'text/javascript';
+    js.src = path;
+    document.body.appendChild(js);
+  }
+</script>
+  <div>
+    <ul id="week">
+
+    </ul>
+    <table id="calendar">
+      <th>Monday</th>
+      <th>Tuesday</th>
+      <th>Wedday</th>
+      <th>Thursday</th>
+      <th>Friday</th>
+
+    </table>
+  </div>
+</html>
